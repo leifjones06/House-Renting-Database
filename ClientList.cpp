@@ -58,3 +58,30 @@ Client* ClientList::getLast()
     }
     return nullptr;
 }
+void ClientList::insertAfter(const Client& target, const Client& c)
+{
+    Node* current = head;
+    while(current != nullptr)
+    {
+        if(current->data.name == target.name || current->data.age == target.age || current->data.gender == target.gender)
+        {
+            break; //Node located
+        }
+    }
+    if(current == nullptr)
+    {
+        return; //No matching node
+    }
+    Node* newNode = new Node(c);
+    newNode->next = current->next; //New node points to current's next
+    newNode->prev = current; //New node points back to current
+    if(current->next != nullptr)
+    {
+        current->next->prev = newNode; //Old next points back to new node
+    }
+    current = newNode;
+    if(current == tail) //Updates tail if necessary
+    {
+        tail = newNode;
+    }
+}
