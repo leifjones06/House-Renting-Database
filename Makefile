@@ -14,7 +14,7 @@ all: $(TARGET)
 
 # Build the executable
 $(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+	$(CXX) $(CXXFLAGS) $(SRC) -static-libgcc -static-libstdc++ -o $(TARGET)
 
 # Clean up compiled files
 clean:

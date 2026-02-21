@@ -35,6 +35,7 @@ int main()
     if (recent) std::cout << "Removed most recent: " << recent->name << "\n";
     std::cout << "List after removing most recent:\n";
     clients.printList();
+    delete recent;
 
     //Third Manager tests
     std::cout << "\nThird Manager Tests\n";

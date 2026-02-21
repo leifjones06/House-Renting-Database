@@ -94,7 +94,7 @@ Client* ClientList::removeMostRecent()
         return nullptr;
     }
     Node* oldTail = tail;
-    Client* clientData = &(oldTail->data);
+    Client* clientCopy = new Client(oldTail->data);
     tail = tail->prev;
     if(tail != nullptr)
     {
@@ -105,7 +105,7 @@ Client* ClientList::removeMostRecent()
         head = nullptr;
     }
     delete oldTail;
-    return clientData;
+    return clientCopy;
 }
 Client* ClientList::removeOldest()
 {
@@ -114,7 +114,7 @@ Client* ClientList::removeOldest()
         return nullptr;
     }
     Node* oldHead = head;
-    Client* clientData = &(oldHead->data);
+    Client* clientCopy = new Client(oldHead->data);
     head = head->next;
     if(head != nullptr)
     {
@@ -125,7 +125,7 @@ Client* ClientList::removeOldest()
         tail = nullptr;
     }
     delete oldHead;
-    return clientData;
+    return clientCopy;
 }
 Client* ClientList::getClient(const std::string& name, int age, char gender)
 {
