@@ -67,6 +67,7 @@ void ClientList::insertAfter(const Client& target, const Client& c)
         {
             break; //Node located
         }
+        current = current->next;
     }
     if(current == nullptr)
     {
@@ -79,8 +80,8 @@ void ClientList::insertAfter(const Client& target, const Client& c)
     {
         current->next->prev = newNode; //Old next points back to new node
     }
-    current = newNode;
-    if(current == tail) //Updates tail if necessary
+    current->next = newNode;
+    if(newNode->next == nullptr) //Updates tail if necessary
     {
         tail = newNode;
     }
