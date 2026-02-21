@@ -112,7 +112,7 @@ Client* ClientList::removeOldest()
         return nullptr;
     }
     Node* oldHead = head;
-    Client* clientData =&(oldHead->data);
+    Client* clientData = &(oldHead->data);
     head = head->next;
     if(head != nullptr)
     {
