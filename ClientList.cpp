@@ -1,3 +1,4 @@
+#include <iostream>
 #include "ClientList.hpp"
 ClientList::ClientList() //Constructor
 {
@@ -150,5 +151,19 @@ Client* ClientList::getClient(const std::string& name, int age, char gender)
         }
         current = current->next;
     }
-    return nullptr; //
+    return nullptr;
+}
+void ClientList::printList()
+{
+    Node* current = head;
+    while (current != nullptr)
+    {
+        std::cout << "Name: " << current->data.name
+                  << ", Age: " << current->data.age
+                  << ", Gender: " << current->data.gender
+                  << ", Family: " << current->data.familyMembers
+                  << ", DOB: " << current->data.dateOfBirth
+                  << "\n";
+                  current = current->next;
+    }
 }

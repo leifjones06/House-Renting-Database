@@ -24,5 +24,6 @@ class ClientList
     Client* getClient(const std::string& name = "", int age = -1, char gender = '\0');
     Client* removeMostRecent();
     Client* removeOldest();
+    void printList(); //Test method
 };
 #endif
