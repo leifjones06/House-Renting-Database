@@ -21,7 +21,7 @@ class ClientList
     void insertAfter(const Client& target, const Client& c); //Search by name/age/gender
     Client* getFirst();
     Client* getLast();
-    Client getClient(const std::string& name);
+    Client* getClient(const std::string& name = "", int age = -1, char gender = '\0');
     Client* removeMostRecent();
     Client* removeOldest();
 };

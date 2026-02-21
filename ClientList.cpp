@@ -126,3 +126,29 @@ Client* ClientList::removeOldest()
     delete oldHead;
     return clientData;
 }
+Client* ClientList::getClient(const std::string& name, int age, char gender)
+{
+    Node* current = head;
+    while(current != nullptr)
+    {
+        bool match = true;
+        if(!name.empty() && current->data.name != name)
+        {
+            match = false;
+        }
+        if(age != -1 && current->data.age != age)
+        {
+            match = false;
+        }
+        if(gender != '\0' && current->data.gender != gender)
+        {
+            match = false;
+        }
+        if(match)
+        {
+            return &(current->data);
+        }
+        current = current->next;
+    }
+    return nullptr; //
+}
