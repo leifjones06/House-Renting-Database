@@ -85,3 +85,43 @@ void ClientList::insertAfter(const Client& target, const Client& c)
         tail = newNode;
     }
 }
+Client* ClientList::removeMostRecent()
+{
+    if(tail == nullptr)
+    {
+        return nullptr;
+    }
+    Node* oldTail = tail;
+    Client* clientData = &(oldTail->data);
+    tail = tail->prev;
+    if(tail != nullptr)
+    {
+        tail->next = nullptr;
+    }
+    else
+    {
+        head = nullptr;
+    }
+    delete oldTail;
+    return clientData;
+}
+Client* ClientList::removeOldest()
+{
+    if(head == nullptr)
+    {
+        return nullptr;
+    }
+    Node* oldHead = head;
+    Client* clientData =&(oldHead->data);
+    head = head->next;
+    if(head != nullptr)
+    {
+        head->prev = nullptr;
+    }
+    else
+    {
+        tail = nullptr;
+    }
+    delete oldHead;
+    return clientData;
+}
