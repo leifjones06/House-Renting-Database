@@ -42,3 +42,19 @@ void ClientList::insertAtEnd(const Client& c) //Similar structure to insertAtBeg
         tail = newNode; //Updates pointer
     }
 }
+Client* ClientList::getFirst()
+{
+    if(head != nullptr)
+    {
+        return &(head->data);
+    }
+    return nullptr;
+}
+Client* ClientList::getLast()
+{
+    if(tail != nullptr)
+    {
+        return &(tail->data);
+    }
+    return nullptr;
+}
