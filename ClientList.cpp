@@ -28,3 +28,17 @@ void ClientList::insertAtBeginning(const Client& c)
         head = newNode; //Updates pointer
     }
 }
+void ClientList::insertAtEnd(const Client& c) //Similar structure to insertAtBeginning, but allowing for end insertion
+{
+    Node* newNode = new Node(c);
+    if(tail == nullptr)
+    {
+        tail = head = newNode;
+    }
+    else
+    {
+        tail->next = newNode; //Old tail points to new node
+        newNode->prev = tail; //New node points back to old tail
+        tail = newNode; //Updates pointer
+    }
+}
